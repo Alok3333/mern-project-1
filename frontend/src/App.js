@@ -1,13 +1,37 @@
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-
+import "./App.css";
+import Header from "./components/Header";
+import Dashboard from "./components/Dashboard";
+import EmployeeList from "./components/EmployeeList";
+import Login from "./components/Login";
+import Footer from "./components/Footer";
+import { Route, Routes } from "react-router-dom";
+import PrivateRoutes from "./components/PrivateRoutes";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
+import NewEmployee from "./components/NewEmployee";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <h1>welcome to new mern assignment project you should complete before sunday 12pm night.</h1>
+      <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="employeelist" element={<EmployeeList />} />
+          <Route path="newemployee" element={<NewEmployee />} />
+          <Route
+            path="*"
+            element={<h1 className="pageNotFound">Page not found</h1>}
+          />
+        </Route>
+        <Route
+          path="login"
+          element={
+            <SnackbarProvider>
+              <Login />
+            </SnackbarProvider>
+          }
+        />
+      </Routes>
       <Footer />
     </div>
   );

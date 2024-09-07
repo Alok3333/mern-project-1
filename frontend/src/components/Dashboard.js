@@ -1,12 +1,18 @@
-import React from 'react';
+import { Box, Container, CssBaseline } from "@mui/material";
+import React from "react";
 
 const Dashboard = () => {
-    return (
-        <div>
-            <h2>Dashboard</h2>
-            <h3>Welcome to the application</h3>
-        </div>
-    )
-}
+  return (
+    <>
+      <CssBaseline />
+      <Container maxWidth="xl" sx={{ marginTop: "64px" }}>
+        <Box sx={{ height: "100vh" }}>
+          <h1>Dashboard</h1>
+          <h3>Welcome Admin Panel</h3>
+        </Box>
+      </Container>
+    </>
+  );
+};
 
 export default Dashboard;
